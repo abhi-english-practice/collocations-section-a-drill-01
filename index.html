@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cambridge Dossier · 117 C1 Phrasal Verbs · Matching Columns</title>
+<style>
+:root{
+  --ink:#17233b;--muted:#667085;--paper:#f5f1e8;--card:#fffdf8;--line:#d8d0c1;
+  --navy:#102a43;--navy2:#173f5f;--burg:#8c2f39;--gold:#b58a4a;--green:#177245;--red:#a23b3b;
+  --shadow:0 18px 50px rgba(17,34,56,.12);--radius:22px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{overflow-x:hidden}
+button{font:inherit}
+.shell{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(245,241,232,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,42,67,.12)}
+.topbar-inner{max-width:1180px;margin:auto;padding:14px 22px 12px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.eyebrow{font:700 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--burg)}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(20px,3vw,31px);line-height:1.05;margin:5px 0 0;color:var(--navy)}
+.meta{display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:800;color:var(--navy);white-space:nowrap;cursor:pointer}
+.progress-wrap{max-width:1180px;margin:auto;padding:0 22px 10px}
+.progress-track{height:5px;background:#e2dccf;border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--navy2),var(--burg));transition:width .35s ease}
+
+.stage-viewport{width:100%;overflow:hidden}
+.module{padding:28px 22px 34px;display:flex;justify-content:center;align-items:flex-start}
+.dossier{width:min(100%,1080px);background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.dossier-head{display:grid;grid-template-columns:1fr auto;gap:18px;padding:23px 26px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fffdf8 0%,#fbf6ec 100%)}
+.case-id{font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--burg)}
+.focus{font-family:Georgia,"Times New Roman",serif;font-size:clamp(26px,4vw,38px);margin:6px 0 7px;color:var(--navy);font-weight:700}
+.subhead{font-size:14px;line-height:1.55;color:#475467;max-width:760px}
+.module-stats{align-self:start;border:1px solid var(--line);background:white;border-radius:14px;padding:11px 13px;min-width:120px;text-align:center}
+.module-stats strong{font:800 20px/1 Georgia,serif;color:var(--navy)}
+.module-stats span{display:block;margin-top:4px;font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+.task{padding:22px 26px 27px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.instructions{font-size:13px;color:#596579;line-height:1.45}
+.toolbar-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:10px;padding:8px 11px;font-size:12px;font-weight:850;cursor:pointer}
+.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.warn{color:var(--burg)}
+
+.match-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:18px;align-items:start}
+.column{min-width:0}
+.col-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 9px}
+.label{font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:#667085}
+.micro{font-size:11px;color:#8a8173}
+.card-list{display:grid;gap:9px}
+.match-card{width:100%;text-align:left;border:1px solid #d1c8ba;background:#fff;border-radius:13px;padding:13px 14px;color:var(--ink);cursor:pointer;transition:.15s;box-shadow:0 2px 0 rgba(16,42,67,.04)}
+.match-card:hover{border-color:#9f907a;transform:translateY(-1px)}
+.match-card.left{font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:700;color:var(--navy);min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.match-card.right{min-height:78px}
+.match-card .def{font-size:14px;line-height:1.45;font-weight:700;color:#334155}
+.vi-support{margin:0 0 16px;border:1px solid #ddd2c0;background:#fffaf0;border-radius:14px;padding:13px 15px}
+.vi-support-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.vi-support-title{font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.11em;text-transform:uppercase;color:#7a4b43}
+.vi-support-note{font-size:11px;color:#9a766e}
+.vi-support-list{display:grid;gap:7px;margin:0;padding:0;list-style:none}
+.vi-support-item{display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;font-size:13px;line-height:1.5;color:#6f433d}
+.vi-support-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#efe0cb;color:#70443d;font-size:10px;font-weight:900}
+body.vi-hidden .vi-support{display:none}
+.match-card.selected{border-color:var(--gold);box-shadow:0 0 0 3px rgba(181,138,74,.15);background:#fffaf0}
+.match-card.matched{border-color:#74a989;background:#edf7f1;cursor:default;transform:none}
+.match-card.matched .badge{display:inline-flex}
+.match-card.wrong{border-color:#c16d6d;background:#fbefef}
+.badge{display:none;flex:0 0 auto;width:25px;height:25px;border-radius:50%;align-items:center;justify-content:center;background:#177245;color:#fff;font-size:13px;font-weight:900}
+.right .badge{float:right;margin-left:10px}
+
+.feedback{min-height:43px;margin-top:14px;border-radius:12px;display:flex;align-items:center;font-size:13px;font-weight:750}
+.feedback.good{padding:11px 13px;background:#edf7f1;color:#165d3a}
+.feedback.bad{padding:11px 13px;background:#fbefef;color:#8c2f39}
+.feedback.info{padding:11px 13px;background:#f5f1e8;color:#5e564c}
+
+.review{margin-top:16px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.review.locked{display:none}
+.review-toggle{width:100%;border:0;background:#f9f5ec;color:var(--navy);padding:12px 14px;text-align:left;font-weight:850;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.review-body{display:none;padding:12px 14px 14px;border-top:1px solid var(--line)}
+.review.open .review-body{display:block}
+.review-item{padding:10px 0;border-bottom:1px dashed #ded5c6}
+.review-item:last-child{border-bottom:0}
+.review-target{font-family:Georgia,"Times New Roman",serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.ex{font-size:13px;line-height:1.5;color:#3f4b5d;margin:4px 0}
+.ex.vi{color:#7a4b43}
+body.vi-hidden .ex.vi{display:none}
+
+.bottomnav{position:sticky;bottom:0;z-index:30;background:rgba(245,241,232,.95);backdrop-filter:blur(14px);border-top:1px solid rgba(16,42,67,.12)}
+.bottom-inner{max-width:1080px;margin:auto;padding:12px 22px;display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}
+.navbtn{border:1px solid #cbbfae;background:#fff;border-radius:12px;padding:11px 14px;font-weight:900;color:var(--navy);cursor:pointer;min-width:100px}
+.navbtn.next{justify-self:end;background:var(--navy);border-color:var(--navy);color:white}
+.navbtn:disabled{opacity:.4;cursor:not-allowed}
+.counter{font:800 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#6d665d;text-align:center}
+
+.drawer{position:fixed;inset:0 0 0 auto;width:min(390px,92vw);background:#fffdf8;z-index:80;box-shadow:-22px 0 50px rgba(17,34,56,.18);transform:translateX(105%);transition:.3s;padding:22px;overflow:auto}
+.drawer.open{transform:translateX(0)}
+.drawer h2{font:700 25px/1.15 Georgia,serif;color:var(--navy);margin:5px 0 16px}
+.indexgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.idx{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 5px;font-weight:800;color:var(--navy);cursor:pointer}
+.idx.current{background:var(--navy);color:#fff}
+.idx.done{border-color:#68a17f;background:#edf7f1}
+.overlay{position:fixed;inset:0;background:rgba(16,42,67,.18);backdrop-filter:blur(2px);z-index:70;display:none}
+.overlay.open{display:block}
+
+@keyframes nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.shake{animation:nudge .22s linear}
+
+@media (max-width:720px){
+  .topbar-inner{grid-template-columns:1fr}
+  .meta{justify-content:flex-start}
+  .module{padding:18px 10px 26px}
+  .dossier-head{grid-template-columns:1fr}
+  .module-stats{justify-self:start}
+  .dossier-head,.task{padding-left:16px;padding-right:16px}
+  .match-grid{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:8px}
+  .match-card{padding:10px 9px;border-radius:11px}
+  .match-card.left{font-size:14px;min-height:70px}
+  .match-card.right{min-height:70px}
+  .match-card .def{font-size:12px}
+  .vi-line{font-size:10px}
+  .bottom-inner{padding:10px 10px}
+  .navbtn{min-width:82px;padding:10px}
+}
+@media (prefers-reduced-motion:reduce){.drawer,.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <div class="eyebrow">Cambridge-style drilling dossier</div>
+      <h1>117 C1 Phrasal Verbs · Matching Columns</h1>
+    </div>
+    <div class="meta">
+      <span class="pill" id="scorePill">Matched 0 / 117</span>
+      <button class="pill" id="viBtn" type="button">Ẩn tiếng Việt</button>
+      <button class="pill" id="indexBtn" type="button">Index</button>
+      <button class="pill" id="resetAllBtn" type="button">Reset</button>
+    </div>
+  </div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div>
+</header>
+
+<main class="stage-viewport" id="viewport" aria-live="polite">
+  <div id="stage"></div>
+</main>
+
+<nav class="bottomnav">
+  <div class="bottom-inner">
+    <button class="navbtn" id="backBtn" type="button">← Back</button>
+    <div class="counter" id="counter">1 / 20</div>
+    <button class="navbtn next" id="nextBtn" type="button">Next →</button>
+  </div>
+</nav>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Module index">
+  <div class="eyebrow">Matching index</div>
+  <h2>20 modules · 117 items</h2>
+  <div class="indexgrid" id="indexGrid"></div>
+</aside>
+
+<script>
+const DATA=[{"id":1,"target":"back down","meaning":"stop demanding something","examples":["They’ve made their demands and they’re not going to back down."],"vi_examples":["Họ đã đưa ra yêu cầu của mình và họ sẽ không chịu nhượng bộ."]},{"id":2,"target":"break down","meaning":"stop working","examples":["My car always breaks down when I don’t have enough money to get it repaired."],"vi_examples":["Xe của tôi lúc nào cũng hỏng đúng khi tôi không có đủ tiền để sửa nó."]},{"id":3,"target":"break/split up","meaning":"to end; to separate (a marriage / a relationship / etc.)","examples":["They broke/split up last year but then they got back together."],"vi_examples":["Họ chia tay năm ngoái nhưng sau đó lại quay về bên nhau."]},{"id":4,"target":"bring up","meaning":"raise/educate/care for (a child)","examples":["My parents died when I was very young so my grandma brought me up."],"vi_examples":["Bố mẹ tôi mất khi tôi còn rất nhỏ, vì vậy bà đã nuôi tôi khôn lớn."]},{"id":5,"target":"bump/run into","meaning":"to meet someone unexpectedly","examples":["I bumped/ran into an old friend from uni in the street."],"vi_examples":["Tôi tình cờ gặp một người bạn cũ thời đại học trên phố."]},{"id":6,"target":"call for","meaning":"demand / request","examples":["The situation calls for calm negotiations and cool heads from everyone involved."],"vi_examples":["Tình hình này đòi hỏi các bên liên quan phải đàm phán bình tĩnh và giữ cái đầu lạnh."]},{"id":7,"target":"call off","meaning":"cancel (an event)","examples":["They’ve had to call off the match due to bad weather."],"vi_examples":["Họ đã phải hủy trận đấu vì thời tiết xấu."]},{"id":8,"target":"carry on","meaning":"continue","examples":["I’m just going to carry on working on my presentation, but let me know if you need anything."],"vi_examples":["Tôi sẽ tiếp tục làm bài thuyết trình, nhưng hãy cho tôi biết nếu bạn cần gì nhé."]},{"id":9,"target":"catch on · become popular","meaning":"to become popular (an idea or a style);","examples":["The new hairstyle has really caught on with teenagers in my town."],"vi_examples":["Kiểu tóc mới đã thực sự trở nên thịnh hành trong giới thanh thiếu niên ở thị trấn của tôi."]},{"id":10,"target":"catch on · understand","meaning":"to understand/realise after a long time","examples":["I kept dropping hints about what I wanted for my birthday but my wife didn’t catch on."],"vi_examples":["Tôi cứ liên tục gợi ý về món quà sinh nhật mình muốn, nhưng mãi mà vợ tôi vẫn không hiểu ra."]},{"id":11,"target":"cheer up","meaning":"make happier","examples":["I bought him a pint to try to cheer him up"],"vi_examples":["Tôi mua cho anh ấy một cốc bia để cố làm anh ấy vui lên."]},{"id":12,"target":"come across","meaning":"find by chance","examples":["I came across my old school books while I was clearing out the attic."],"vi_examples":["Tôi tình cờ tìm thấy những cuốn sách cũ thời đi học khi đang dọn gác mái."]},{"id":13,"target":"come into (money)","meaning":"inherit","examples":["He came into quite a lot of money when his grandparents passed away."],"vi_examples":["Anh ấy được thừa kế một khoản tiền khá lớn khi ông bà qua đời."]},{"id":14,"target":"come round","meaning":"come to your house","examples":["Come round after school and we’ll work on the science project together."],"vi_examples":["Ghé qua nhà tôi sau giờ học nhé, rồi chúng ta sẽ cùng làm dự án khoa học."]},{"id":15,"target":"come up with","meaning":"think of and suggest an idea","examples":["I’ve come up with a great idea for our Halloween costumes."],"vi_examples":["Tôi đã nghĩ ra một ý tưởng rất hay cho trang phục Halloween của chúng ta."]},{"id":16,"target":"come up","meaning":"be mentioned, arise or appear (in class / an exam / a meeting)","examples":["The topic of a pay rise came up in my meeting with the boss."],"vi_examples":["Chủ đề tăng lương đã được nhắc đến trong cuộc họp của tôi với sếp."]},{"id":17,"target":"count on","meaning":"to rely on","examples":["Don’t be late! Everyone is counting on you."],"vi_examples":["Đừng đến muộn! Mọi người đều đang trông cậy vào bạn."]},{"id":18,"target":"cut down on","meaning":"reduce the amount you consume","examples":["My New Year’s resolution is to cut down on fast food."],"vi_examples":["Mục tiêu năm mới của tôi là cắt giảm đồ ăn nhanh."]},{"id":19,"target":"cut off","meaning":"separate / isolate / interrupt","examples":["Sorry, the call got cut off when we went through a tunnel."],"vi_examples":["Xin lỗi, cuộc gọi bị ngắt khi chúng tôi đi qua một đường hầm."]},{"id":20,"target":"cut out","meaning":"stop doing / eating something","examples":["My doctor has told me I need to cut out all processed meats from my diet."],"vi_examples":["Bác sĩ bảo tôi cần loại bỏ hoàn toàn các loại thịt chế biến sẵn khỏi chế độ ăn."]},{"id":21,"target":"do up","meaning":"fasten, button up clothes; repair, redecorate or modernize a building or room","examples":["The child was struggling to do up his shoelaces.","We’re doing up our house this summer."],"vi_examples":["Đứa trẻ đang loay hoay buộc dây giày.","Mùa hè này chúng tôi đang sửa sang lại ngôi nhà."]},{"id":22,"target":"dress up","meaning":"put on different clothes in order to disguise yourself","examples":["We all dressed up as monsters for Halloween."],"vi_examples":["Tất cả chúng tôi đều hóa trang thành quái vật vào dịp Halloween."]},{"id":23,"target":"drop by","meaning":"to visit informally or unexpectedly","examples":["My Dad dropped by on his way home to work to say hello."],"vi_examples":["Bố tôi ghé qua để chào một tiếng trên đường đi làm."]},{"id":24,"target":"drop off","meaning":"to take something (or someone) to a place and leave it there","examples":["He also came to drop off my Christmas presents.","The taxi dropped us off outside the airport."],"vi_examples":["Anh ấy cũng ghé để mang quà Giáng sinh của tôi tới.","Chiếc taxi cho chúng tôi xuống ngay bên ngoài sân bay."]},{"id":25,"target":"drop out","meaning":"stop taking part in (a competition, a university, etc.)","examples":["He didn’t enjoy the economics degree course and dropped out after 6 months."],"vi_examples":["Anh ấy không thích khóa học kinh tế và đã bỏ học sau 6 tháng."]},{"id":26,"target":"end up","meaning":"an end result of something planned or unplanned","examples":["We got lost and ended up in a completely different town.","We were supposed to go out clubbing but we ended up staying in."],"vi_examples":["Chúng tôi bị lạc và cuối cùng lại đến một thị trấn hoàn toàn khác.","Đáng lẽ chúng tôi đi chơi câu lạc bộ, nhưng cuối cùng lại ở nhà."]},{"id":27,"target":"fall for","meaning":"fall in love with","examples":["She fell for him the moment she met him."],"vi_examples":["Cô ấy phải lòng anh ấy ngay từ khoảnh khắc gặp mặt."]},{"id":28,"target":"fall out with","meaning":"argue and stop being friendly with someone","examples":["She fell out with her younger sister over who was going to look after grandma at Christmas."],"vi_examples":["Cô ấy cãi nhau rồi mất hòa khí với em gái về chuyện ai sẽ chăm bà vào dịp Giáng sinh."]},{"id":29,"target":"find out","meaning":"discover","examples":["Yesterday she found out that she passed her law degree."],"vi_examples":["Hôm qua cô ấy phát hiện ra rằng mình đã đỗ bằng luật."]},{"id":30,"target":"follow up","meaning":"find out more about something; take further action","examples":["I wrote them an email to follow up my complaint from the previous day."],"vi_examples":["Tôi đã viết email cho họ để tiếp tục xử lý khiếu nại của mình từ hôm trước."]},{"id":31,"target":"get along/on","meaning":"have a good relationship with","examples":["I get along/on really well with all my teachers."],"vi_examples":["Tôi có mối quan hệ rất tốt với tất cả giáo viên của mình."]},{"id":32,"target":"get away","meaning":"go on a short holiday/break","examples":["We just want to get away for the weekend and have some peace and quiet."],"vi_examples":["Chúng tôi chỉ muốn đi nghỉ đâu đó vào cuối tuần để được yên tĩnh và thư giãn."]},{"id":33,"target":"get away with","meaning":"not be punished for doing something","examples":["He stole €10 from his mum’s purse and got away with it, she blamed his brother."],"vi_examples":["Anh ấy lấy trộm 10 euro trong ví của mẹ mà không bị phạt; mẹ anh ấy lại đổ lỗi cho em trai anh ấy."]},{"id":34,"target":"get by","meaning":"manage to survive / live","examples":["I don’t earn much but it’s enough to get by."],"vi_examples":["Tôi không kiếm được nhiều tiền nhưng vẫn đủ để sống qua ngày."]},{"id":35,"target":"get on with","meaning":"start or continue doing something (especially work)","examples":["Stop chatting and get on with your work!"],"vi_examples":["Đừng nói chuyện nữa và tiếp tục làm bài của bạn đi!"]},{"id":36,"target":"get over · relationship","meaning":"recover after the end of a relationship with someone","examples":["It took him a long time to get over her, I think he still loves her."],"vi_examples":["Anh ấy mất rất lâu mới vượt qua được chuyện với cô ấy; tôi nghĩ anh ấy vẫn còn yêu cô ấy."]},{"id":37,"target":"get over · illness","meaning":"recover from","examples":["I’m still getting over a nasty cold but I should be fine in a couple of days."],"vi_examples":["Tôi vẫn đang hồi phục sau một trận cảm nặng, nhưng vài ngày nữa chắc sẽ ổn."]},{"id":38,"target":"get together","meaning":"meet (usually for social reasons)","examples":["I get together with my old uni friends every 6 months or so."],"vi_examples":["Khoảng sáu tháng một lần, tôi lại gặp gỡ những người bạn cũ thời đại học."]},{"id":39,"target":"get rid of","meaning":"eliminate/discard","examples":["I’m cleaning out my garage this weekend, I’m going to get rid of so much old stuff."],"vi_examples":["Cuối tuần này tôi sẽ dọn ga-ra và bỏ đi rất nhiều đồ cũ."]},{"id":40,"target":"give away","meaning":"reveal","examples":["He accidently gave away the surprise birthday party to the birthday girl, what an idiot!"],"vi_examples":["Anh ấy vô tình làm lộ bữa tiệc sinh nhật bất ngờ cho chính cô gái sinh nhật—đúng là ngốc thật!"]},{"id":41,"target":"give back","meaning":"return","examples":["Hey! That’s my bag! Give it back"],"vi_examples":["Này! Đó là túi của tôi! Trả lại đây."]},{"id":42,"target":"give/hand in","meaning":"submit (homework, etc.)","examples":["Don’t forget to give/hand in your essays at the end of the class."],"vi_examples":["Đừng quên nộp bài luận vào cuối buổi học."]},{"id":43,"target":"give in","meaning":"agree to something you do not want to","examples":["The kids wouldn’t stop asking for an ice cream so I finally gave in and let them have one."],"vi_examples":["Bọn trẻ cứ đòi ăn kem mãi nên cuối cùng tôi phải nhượng bộ và cho chúng ăn một cây."]},{"id":44,"target":"give off","meaning":"produce and send into the air","examples":["The rotting fruit was giving off a nasty smell. (a smell)"],"vi_examples":["Trái cây thối đang bốc ra một mùi rất khó chịu."]},{"id":45,"target":"give out · announce","meaning":"announce or broadcast information","examples":["The receptionist gave out all the most important information to the guests."],"vi_examples":["Nhân viên lễ tân đã thông báo tất cả những thông tin quan trọng nhất cho khách."]},{"id":46,"target":"give/hand out · distribute","meaning":"distribute to a group of people","examples":["They’re giving/handing out free samples of delicious cheese at the supermarket."],"vi_examples":["Họ đang phát các mẫu phô mai ngon miễn phí tại siêu thị."]},{"id":47,"target":"give up","meaning":"to stop trying to do something (often because it is too difficult)","examples":["The sudoku puzzle was too difficult so I gave up and read a book instead."],"vi_examples":["Câu đố Sudoku quá khó nên tôi bỏ cuộc và chuyển sang đọc sách."]},{"id":48,"target":"go along with","meaning":"support an idea or agree with someone’s opinion","examples":["A: We should decorate the kitchen. B: Yeah, I’d go along with that."],"vi_examples":["A: Chúng ta nên trang trí lại nhà bếp. B: Ừ, tôi đồng ý với ý đó."]},{"id":49,"target":"go off","meaning":"explode; become bad (food)","examples":["The milk has gone off, we’ll have to buy some more.","A bomb went off outside the airport, luckily nobody was hurt."],"vi_examples":["Sữa đã hỏng rồi, chúng ta sẽ phải mua thêm.","Một quả bom phát nổ bên ngoài sân bay; may mắn là không ai bị thương."]},{"id":50,"target":"go on","meaning":"to continue","examples":["The poker game went on for hours and hours."],"vi_examples":["Ván bài poker kéo dài hàng giờ liền."]},{"id":51,"target":"go out with","meaning":"have a romantic relationship with someone","examples":["Have you heard? Charlie is going out with Kathy."],"vi_examples":["Bạn nghe tin chưa? Charlie đang hẹn hò với Kathy."]},{"id":52,"target":"go through with","meaning":"complete a promise or plan","examples":["My Dad’s threatening to take away my car keys if I don’t tidy my room but I don’t think he will go through with it."],"vi_examples":["Bố tôi dọa sẽ lấy chìa khóa xe nếu tôi không dọn phòng, nhưng tôi không nghĩ ông ấy sẽ thực sự làm vậy."]},{"id":53,"target":"grow apart","meaning":"get distant from someone, like a friend","examples":["My best friend from primary school and I grew apart over the years and now we hardly speak."],"vi_examples":["Tôi và người bạn thân từ thời tiểu học dần xa cách theo năm tháng, và giờ chúng tôi hầu như không nói chuyện."]},{"id":54,"target":"grow up","meaning":"slowly become an adult","examples":["When I grow up, I want to be a firefighter."],"vi_examples":["Khi lớn lên, tôi muốn trở thành lính cứu hỏa."]},{"id":55,"target":"hang around","meaning":"to wait or spend time somewhere, doing nothing","examples":["We hung around outside the concert hall for 2 hours after the show trying to get an autograph."],"vi_examples":["Chúng tôi nán lại bên ngoài nhà hát suốt hai giờ sau buổi diễn để cố xin chữ ký."]},{"id":56,"target":"hang out","meaning":"spend time relaxing (informal)","examples":["I’m just going to hang out with my friends tonight."],"vi_examples":["Tối nay tôi chỉ định đi chơi thư giãn với bạn bè thôi."]},{"id":57,"target":"hang up","meaning":"to hang clothes or an object on a hook or line; to end a phone call","examples":["Don’t leave your shirts on the floor, you need to hang them up.","She finished the call and then hung up."],"vi_examples":["Đừng để áo sơ mi dưới sàn; bạn cần treo chúng lên.","Cô ấy kết thúc cuộc gọi rồi cúp máy."]},{"id":58,"target":"head for","meaning":"go towards","examples":["Go down this street and then head for the big church, your hotel is right next door to it."],"vi_examples":["Đi dọc con phố này rồi hướng về nhà thờ lớn; khách sạn của bạn nằm ngay bên cạnh."]},{"id":59,"target":"hold back","meaning":"prevent someone from making progress","examples":["My shyness always holds me back in social situations."],"vi_examples":["Sự nhút nhát luôn cản trở tôi trong các tình huống giao tiếp xã hội."]},{"id":60,"target":"hurry up","meaning":"do something more quickly","examples":["We need to hurry up! Our train leaves in five minutes."],"vi_examples":["Chúng ta phải nhanh lên! Tàu sẽ rời ga sau năm phút nữa."]},{"id":61,"target":"keep on","meaning":"to continue","examples":["Just keep on walking this way and you’ll get to the station in no time."],"vi_examples":["Cứ tiếp tục đi theo hướng này, bạn sẽ đến ga rất nhanh thôi."]},{"id":62,"target":"let down","meaning":"disappoint","examples":["Where were you on Saturday? I really needed your help and you let me down."],"vi_examples":["Thứ Bảy bạn ở đâu vậy? Tôi thực sự cần bạn giúp mà bạn lại làm tôi thất vọng."]},{"id":63,"target":"let off","meaning":"give someone a lighter punishment than they expected (or not punish at all)","examples":["The police decided to let the kids off with a warning because it was their first offence."],"vi_examples":["Cảnh sát quyết định chỉ cảnh cáo bọn trẻ vì đây là lần vi phạm đầu tiên của chúng."]},{"id":64,"target":"look after","meaning":"take care of","examples":["I can’t come out, I need to look after my baby brother."],"vi_examples":["Tôi không thể ra ngoài; tôi phải trông em trai nhỏ."]},{"id":65,"target":"look down on","meaning":"feel superior to","examples":["I hate it when people look down on those who are less fortunate than them."],"vi_examples":["Tôi ghét khi mọi người coi thường những người kém may mắn hơn họ."]},{"id":66,"target":"look for","meaning":"try to find","examples":["I’ve been looking for a flat for 2 months but haven’t found one I like yet."],"vi_examples":["Tôi đã tìm căn hộ suốt hai tháng nhưng vẫn chưa tìm được căn nào mình thích."]},{"id":67,"target":"look forward to","meaning":"feel happy about something that is going to happen","examples":["I’m really looking forward to Christmas this year."],"vi_examples":["Năm nay tôi thực sự mong chờ Giáng sinh."]},{"id":68,"target":"look into","meaning":"investigate","examples":["The police are looking into the case of the missing dog."],"vi_examples":["Cảnh sát đang điều tra vụ chú chó mất tích."]},{"id":69,"target":"look up","meaning":"find information about (e.g. a word in a dictionary)","examples":["I had never heard of my Dad’s favorite footballer, I had to look him up on wikipedia."],"vi_examples":["Tôi chưa từng nghe nói đến cầu thủ bóng đá yêu thích của bố, nên phải tra cứu anh ấy trên Wikipedia."]},{"id":70,"target":"look up to","meaning":"admire and respect","examples":["I’ve always looked up to my mum, she’s very resilient."],"vi_examples":["Tôi luôn ngưỡng mộ mẹ mình; bà rất kiên cường."]},{"id":71,"target":"make up for","meaning":"compensate for","examples":["They gave us free tickets to a different show to make up for the cancellation."],"vi_examples":["Họ tặng chúng tôi vé miễn phí cho một buổi diễn khác để bù cho việc chương trình bị hủy."]},{"id":72,"target":"make up · reconcile","meaning":"become friends again","examples":["They fell out over something stupid but now they’ve made up."],"vi_examples":["Họ cãi nhau vì một chuyện ngớ ngẩn, nhưng giờ đã làm hòa."]},{"id":73,"target":"make up · invent","meaning":"invent (stories, excuses)","examples":["He’s always making up ridiculous stories and excuses for why he’s late. (something)"],"vi_examples":["Anh ấy lúc nào cũng bịa ra những câu chuyện và lý do vô lý để giải thích vì sao mình đến muộn."]},{"id":74,"target":"move on","meaning":"change to a different job, activity or place","examples":["Ok, thanks for that report Jon, now let’s move on to Sarah’s presentation."],"vi_examples":["Được rồi, cảm ơn báo cáo của Jon; bây giờ chúng ta chuyển sang phần thuyết trình của Sarah."]},{"id":75,"target":"move out","meaning":"stop living in a house or flat","examples":["I moved out of my parents house when I was 18."],"vi_examples":["Tôi dọn ra khỏi nhà bố mẹ khi 18 tuổi."]},{"id":76,"target":"pass out","meaning":"lose consciousness","examples":["He was so dehydrated that he passed out and woke up in the back of an ambulance."],"vi_examples":["Anh ấy mất nước nghiêm trọng đến mức ngất đi và tỉnh dậy ở phía sau một chiếc xe cứu thương."]},{"id":77,"target":"pay back","meaning":"return money","examples":["When are you going to pay back the money you owe me?"],"vi_examples":["Khi nào bạn sẽ trả lại số tiền bạn nợ tôi?"]},{"id":78,"target":"pay for","meaning":"purchase","examples":["Don’t worry, my parents are going to pay for dinner."],"vi_examples":["Đừng lo, bố mẹ tôi sẽ trả tiền bữa tối."]},{"id":79,"target":"pay off","meaning":"finish paying for something; have a positive result from hard work","examples":["They’ve finally managed to pay off the mortgage on the house.","She got into Oxford University, all of her hard work has paid off!"],"vi_examples":["Cuối cùng họ cũng trả hết khoản vay thế chấp căn nhà.","Cô ấy đã vào được Đại học Oxford; mọi nỗ lực của cô ấy cuối cùng cũng được đền đáp!"]},{"id":80,"target":"pick up","meaning":"meet / collect someone (e.g. at the station / from school)","examples":["Mum, it’s raining really hard, can you come and pick me up from the train station?"],"vi_examples":["Mẹ ơi, trời đang mưa rất to; mẹ có thể đến ga tàu đón con không?"]},{"id":81,"target":"point out","meaning":"to draw attention to something or someone","examples":["At the end of the presentation our boss pointed out several obvious mistakes we had made."],"vi_examples":["Cuối bài thuyết trình, sếp đã chỉ ra một số lỗi rõ ràng mà chúng tôi mắc phải."]},{"id":82,"target":"put away","meaning":"put something back in the correct place","examples":["Vicky! Come and put away your toys before you have dinner."],"vi_examples":["Vicky! Lại đây cất đồ chơi đi trước khi ăn tối."]},{"id":83,"target":"put off","meaning":"postpone","examples":["I’m going to the dentist tomorrow, I’ve been putting it off for months."],"vi_examples":["Ngày mai tôi sẽ đi nha sĩ; tôi đã trì hoãn việc đó suốt nhiều tháng."]},{"id":84,"target":"put on · event","meaning":"organize an event","examples":["They put on a big show to raise money for charity. (an event/a show)"],"vi_examples":["Họ tổ chức một buổi biểu diễn lớn để gây quỹ từ thiện."]},{"id":85,"target":"put on · clothes/make-up","meaning":"place something on your body","examples":["Put your coat on, it’s cold outside. (clothes /make up)"],"vi_examples":["Mặc áo khoác vào đi, bên ngoài trời lạnh."]},{"id":86,"target":"put on · weight","meaning":"increase (weight)","examples":["I put on quite a lot of weight during lockdown. (weight)"],"vi_examples":["Tôi đã tăng khá nhiều cân trong thời gian phong tỏa."]},{"id":87,"target":"put out","meaning":"extinguish (e.g. fire)","examples":["The firefighters were finally able to put the fire out."],"vi_examples":["Cuối cùng lính cứu hỏa cũng dập được đám cháy."]},{"id":88,"target":"put up · accommodate","meaning":"accommodate","examples":["My uncle can put us up for a couple of nights while we’re in London. (for the night)"],"vi_examples":["Chú tôi có thể cho chúng tôi ở nhờ vài đêm khi chúng tôi ở London."]},{"id":89,"target":"put up · hand","meaning":"lift into the air","examples":["Put your hand up if you have any questions. (your hand)"],"vi_examples":["Hãy giơ tay nếu bạn có câu hỏi nào."]},{"id":90,"target":"put up with","meaning":"tolerate","examples":["I’m not going to put up with anymore lateness from those kids."],"vi_examples":["Tôi sẽ không chịu đựng thêm việc bọn trẻ đó đi muộn nữa."]},{"id":91,"target":"rip off","meaning":"charge someone too much for something","examples":["The car rental company tried to rip us off but I was having none of it."],"vi_examples":["Công ty cho thuê xe cố tính giá quá cao với chúng tôi, nhưng tôi nhất quyết không chấp nhận."]},{"id":92,"target":"run out of","meaning":"use up (e.g. money, petrol, time)","examples":["We ran out of petrol in the middle of nowhere, it was terrifying."],"vi_examples":["Chúng tôi hết xăng giữa nơi hoang vắng; thật đáng sợ."]},{"id":93,"target":"set off","meaning":"start a journey","examples":["We had to set off at 4am, it was horrible."],"vi_examples":["Chúng tôi phải khởi hành lúc 4 giờ sáng; thật kinh khủng."]},{"id":94,"target":"set up","meaning":"establish / start (e.g. a company)","examples":["We set up the company in 1995 and it’s still going strong to this day."],"vi_examples":["Chúng tôi thành lập công ty vào năm 1995 và đến nay nó vẫn hoạt động rất tốt."]},{"id":95,"target":"show off","meaning":"try to impress people by telling or showing them what you are capable of","examples":["Dan! Stop showing off and pass us the ball, we’re losing 4-0."],"vi_examples":["Dan! Đừng khoe khoang nữa, chuyền bóng cho chúng tôi đi; đội mình đang thua 4–0."]},{"id":96,"target":"shut down","meaning":"to close","examples":["They’ve had to shut down 5 stores in the area because sales have dropped."],"vi_examples":["Họ đã phải đóng cửa 5 cửa hàng trong khu vực vì doanh số giảm."]},{"id":97,"target":"sort out","meaning":"arrange or order by classes or categories; find a solution","examples":["We need to sort out accommodation for our trip to Paris."],"vi_examples":["Chúng ta cần sắp xếp chỗ ở cho chuyến đi Paris."]},{"id":98,"target":"stand for","meaning":"to represent","examples":["BBC stands for the British Broadcasting Corporation."],"vi_examples":["BBC là viết tắt của British Broadcasting Corporation."]},{"id":99,"target":"stand out","meaning":"be easy to see because of being different","examples":["His ginger hair really makes him stand out from the rest of the boys in his class."],"vi_examples":["Mái tóc màu hung khiến cậu ấy thực sự nổi bật so với những cậu con trai khác trong lớp."]},{"id":100,"target":"take after","meaning":"resemble a member of your family in appearance, behaviour or character","examples":["I’d say I take after my Dad in my looks and my Mum in my personality. (someone)"],"vi_examples":["Tôi nghĩ ngoại hình tôi giống bố, còn tính cách thì giống mẹ."]},{"id":101,"target":"take off · remove","meaning":"to remove from a surface or your body (clothes)","examples":["Please take your feet off the seat, your shoes are very dirty."],"vi_examples":["Vui lòng bỏ chân khỏi ghế; giày của bạn rất bẩn."]},{"id":102,"target":"take off · plane","meaning":"leave the ground (e.g. a plane)","examples":["Our plane takes off at 9pm."],"vi_examples":["Máy bay của chúng tôi cất cánh lúc 9 giờ tối."]},{"id":103,"target":"take on","meaning":"attempt something new; employ","examples":["She’s taken on a lot of extra responsibilities in her new job."],"vi_examples":["Cô ấy đã đảm nhận thêm rất nhiều trách nhiệm trong công việc mới."]},{"id":104,"target":"take over","meaning":"take control of","examples":["A new manager has taken over the department."],"vi_examples":["Một quản lý mới đã tiếp quản bộ phận."]},{"id":105,"target":"take to","meaning":"start to like, especially after only a short time","examples":["I took to ice-skating really quickly and now I’ve signed up for weekly classes."],"vi_examples":["Tôi nhanh chóng thích môn trượt băng và giờ đã đăng ký lớp học hằng tuần."]},{"id":106,"target":"take up","meaning":"start doing (a hobby)","examples":["I first took up volleyball when I was in secondary school."],"vi_examples":["Tôi bắt đầu chơi bóng chuyền khi còn học trung học."]},{"id":107,"target":"tell off","meaning":"speak angrily to someone who has done something wrong","examples":["The teacher told us off for being late."],"vi_examples":["Giáo viên đã mắng chúng tôi vì đến muộn."]},{"id":108,"target":"throw away","meaning":"get rid of something you do not need any more","examples":["I’ve decided to throw away my old sofa, unless you want it."],"vi_examples":["Tôi đã quyết định vứt chiếc ghế sofa cũ đi, trừ khi bạn muốn lấy nó."]},{"id":109,"target":"turn back","meaning":"return towards the place you started from","examples":["The weather on the mountain got really bad so we had to turn back."],"vi_examples":["Thời tiết trên núi trở nên rất xấu nên chúng tôi phải quay lại."]},{"id":110,"target":"turn down","meaning":"reject or refuse","examples":["They’ve turned down our offer for the house, they want more money."],"vi_examples":["Họ đã từ chối lời đề nghị mua nhà của chúng tôi; họ muốn nhiều tiền hơn."]},{"id":111,"target":"turn into","meaning":"to transform","examples":["On a full moon he turns into a werewolf!","They’ve turned my favourite restaurant into a Burger King!"],"vi_examples":["Vào đêm trăng tròn, anh ta biến thành người sói!","Họ đã biến nhà hàng yêu thích của tôi thành một cửa hàng Burger King!"]},{"id":112,"target":"turn/switch off","meaning":"to disconnect (e.g. a computer)","examples":["Don’t forget to turn/switch off the lights when you leave."],"vi_examples":["Đừng quên tắt đèn khi bạn rời đi."]},{"id":113,"target":"turn/switch on","meaning":"to connect (e.g. the TV)","examples":["He switched/turned on the TV and sat down to watch the match."],"vi_examples":["Anh ấy bật TV rồi ngồi xuống xem trận đấu."]},{"id":114,"target":"turn up","meaning":"arrive, usually unexpectedly, early or late","examples":["Our bus didn’t turn up for 2 hours."],"vi_examples":["Xe buýt của chúng tôi mãi hai tiếng vẫn không đến."]},{"id":115,"target":"use up","meaning":"finish a supply of something","examples":["He always uses up all the toilet roll and doesn’t replace it."],"vi_examples":["Anh ấy luôn dùng hết giấy vệ sinh mà không thay cuộn mới."]},{"id":116,"target":"wear out","meaning":"to use something until it becomes unusable","examples":["I’ve completely worn out my old football boots, I need to get some new ones."],"vi_examples":["Tôi đã dùng đôi giày bóng đá cũ đến mức mòn hẳn; tôi cần mua đôi mới."]},{"id":117,"target":"work out","meaning":"think about and find a solution; do exercise","examples":["I work out 3 times a week at the gym.","The students struggled to work out the complicated equations.","The police couldn’t work out how the burglars got into the house."],"vi_examples":["Tôi tập thể dục ở phòng gym ba lần một tuần.","Các học sinh chật vật tìm cách giải những phương trình phức tạp.","Cảnh sát không thể tìm ra cách những tên trộm đã đột nhập vào ngôi nhà."]}];
+const PER_MODULE=6;
+const MODULES=Math.ceil(DATA.length/PER_MODULE);
+const STORAGE_KEY='c1_phrasal_matching_columns_v1';
+
+let state={module:0,matched:{},viVisible:true,shuffleVersion:{}};
+try{state={...state,...JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}}catch(e){}
+if(!Number.isInteger(state.module)||state.module<0||state.module>=MODULES) state.module=0;
+if(typeof state.viVisible!=='boolean') state.viVisible=true;
+if(!state.matched||typeof state.matched!=='object') state.matched={};
+if(!state.shuffleVersion||typeof state.shuffleVersion!=='object') state.shuffleVersion={};
+
+const stage=document.getElementById('stage');
+const counter=document.getElementById('counter');
+const scorePill=document.getElementById('scorePill');
+const progressFill=document.getElementById('progressFill');
+const backBtn=document.getElementById('backBtn');
+const nextBtn=document.getElementById('nextBtn');
+const viBtn=document.getElementById('viBtn');
+const indexBtn=document.getElementById('indexBtn');
+const resetAllBtn=document.getElementById('resetAllBtn');
+const drawer=document.getElementById('drawer');
+const overlay=document.getElementById('overlay');
+const indexGrid=document.getElementById('indexGrid');
+
+let selectedLeft=null, selectedRight=null;
+
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function chunk(mi){return DATA.slice(mi*PER_MODULE,Math.min(DATA.length,(mi+1)*PER_MODULE))}
+function totalMatched(){return Object.values(state.matched).filter(Boolean).length}
+function moduleComplete(mi){return chunk(mi).every(d=>state.matched[d.id])}
+function moduleMatched(mi){return chunk(mi).filter(d=>state.matched[d.id]).length}
+
+function seededShuffle(items,seed){
+  let x=seed>>>0;
+  const a=items.slice();
+  function rnd(){x=(x*1664525+1013904223)>>>0;return x/4294967296}
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+  if(a.length>1 && a.every((v,i)=>v===items[i])) [a[0],a[1]]=[a[1],a[0]];
+  return a;
+}
+
+function rightOrder(items,mi){
+  const v=Number(state.shuffleVersion[mi]||0);
+  return seededShuffle(items, 1907 + mi*97 + v*997);
+}
+
+function moduleHTML(mi){
+  const items=chunk(mi);
+  const right=rightOrder(items,mi);
+  const first=items[0].id,last=items[items.length-1].id;
+  return `<section class="module" data-module="${mi}">
+    <article class="dossier">
+      <header class="dossier-head">
+        <div>
+          <div class="case-id">Matching Module ${String(mi+1).padStart(2,'0')} · Items ${first}–${last}</div>
+          <div class="focus">Match the phrasal verb</div>
+          <div class="subhead">Choose one card from each column. Correct pairs lock automatically.</div>
+        </div>
+        <div class="module-stats"><strong id="moduleScore">${moduleMatched(mi)} / ${items.length}</strong><span>matched</span></div>
+      </header>
+
+      <div class="task">
+        <div class="toolbar">
+          <div class="instructions">Left: phrasal verb · Right: source meaning. Match each item with its correct definition.</div>
+          <div class="toolbar-actions">
+            <button class="btn" id="shuffleBtn" type="button">Shuffle meanings</button>
+            <button class="btn warn" id="resetModuleBtn" type="button">Reset module</button>
+          </div>
+        </div>
+
+        <div class="match-grid">
+          <section class="column">
+            <div class="col-head"><div class="label">Phrasal verbs</div><div class="micro">${items.length} items</div></div>
+            <div class="card-list" id="leftList">
+            ${items.map((d,i)=>`
+              <button class="match-card left ${state.matched[d.id]?'matched':''}" type="button" data-side="left" data-id="${d.id}">
+                <span>${esc(d.target)}</span><span class="badge">✓</span>
+              </button>`).join('')}
+            </div>
+          </section>
+
+          <section class="column">
+            <div class="col-head"><div class="label">Meanings</div><div class="micro">shuffled</div></div>
+            <div class="card-list" id="rightList">
+            ${right.map(d=>`
+              <button class="match-card right ${state.matched[d.id]?'matched':''}" type="button" data-side="right" data-id="${d.id}">
+                <span class="badge">✓</span>
+                <span class="def">${esc(d.meaning)}</span>
+              </button>`).join('')}
+            </div>
+          </section>
+        </div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <div class="review ${moduleComplete(mi)?'':'locked'}" id="review">
+          <button class="review-toggle" id="reviewToggle" type="button">
+            <span>Review source sentences</span><span id="reviewMark">＋</span>
+          </button>
+          <div class="review-body">
+            ${items.map(d=>`
+              <div class="review-item">
+                <div class="review-target">${esc(d.target)} — ${esc(d.meaning)}</div>
+                ${d.examples.map((ex,j)=>`<div class="ex">${esc(ex)}</div><div class="ex vi">${esc((d.vi_examples||[])[j]||'')}</div>`).join('')}
+              </div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>`;
+}
+
+function render(){
+  selectedLeft=null;selectedRight=null;
+  stage.innerHTML=moduleHTML(state.module);
+  document.body.classList.toggle('vi-hidden',!state.viVisible);
+  wire();
+  updateChrome();
+  requestAnimationFrame(anchorModule);
+}
+
+function anchorModule(){
+  const vp=document.getElementById('viewport');
+  const topbar=document.querySelector('.topbar');
+  const y=vp.getBoundingClientRect().top+window.scrollY-(topbar?.offsetHeight||0)-8;
+  window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+}
+
+function wire(){
+  document.querySelectorAll('[data-side="left"]').forEach(b=>b.addEventListener('click',()=>selectCard('left',b)));
+  document.querySelectorAll('[data-side="right"]').forEach(b=>b.addEventListener('click',()=>selectCard('right',b)));
+  document.getElementById('shuffleBtn').onclick=()=>{
+    state.shuffleVersion[state.module]=(Number(state.shuffleVersion[state.module]||0)+1);
+    save();render();
+  };
+  document.getElementById('resetModuleBtn').onclick=()=>{
+    chunk(state.module).forEach(d=>delete state.matched[d.id]);
+    save();render();
+  };
+  document.getElementById('reviewToggle').onclick=()=>{
+    const r=document.getElementById('review');r.classList.toggle('open');
+    document.getElementById('reviewMark').textContent=r.classList.contains('open')?'−':'＋';
+  };
+}
+
+function selectCard(side,btn){
+  const id=Number(btn.dataset.id);
+  if(state.matched[id]) return;
+  document.querySelectorAll(`.match-card[data-side="${side}"]`).forEach(x=>x.classList.remove('selected'));
+  btn.classList.add('selected');
+  if(side==='left') selectedLeft={id,btn};
+  else selectedRight={id,btn};
+  if(selectedLeft && selectedRight) evaluatePair();
+}
+
+function evaluatePair(){
+  const fb=document.getElementById('feedback');
+  if(selectedLeft.id===selectedRight.id){
+    const id=selectedLeft.id;
+    state.matched[id]=true;
+    selectedLeft.btn.classList.remove('selected');selectedRight.btn.classList.remove('selected');
+    selectedLeft.btn.classList.add('matched');selectedRight.btn.classList.add('matched');
+    selectedLeft.btn.querySelector('.badge').style.display='inline-flex';
+    selectedRight.btn.querySelector('.badge').style.display='inline-flex';
+    selectedLeft=null;selectedRight=null;
+    save();updateChrome();
+    document.getElementById('moduleScore').textContent=`${moduleMatched(state.module)} / ${chunk(state.module).length}`;
+    if(moduleComplete(state.module)){
+      fb.className='feedback good';
+      fb.textContent='Module complete — all pairs matched correctly. Review source sentences is now available.';
+      const review=document.getElementById('review');
+      if(review) review.classList.remove('locked');
+    }else{
+      fb.className='feedback good';
+      fb.textContent='Correct pair.';
+    }
+  }else{
+    const l=selectedLeft.btn,r=selectedRight.btn;
+    l.classList.add('wrong','shake');r.classList.add('wrong','shake');
+    fb.className='feedback bad';fb.textContent='Not a match — try again.';
+    setTimeout(()=>{
+      [l,r].forEach(x=>x.classList.remove('selected','wrong','shake'));
+      selectedLeft=null;selectedRight=null;
+    },420);
+  }
+}
+
+function updateChrome(){
+  const matched=totalMatched();
+  scorePill.textContent=`Matched ${matched} / ${DATA.length}`;
+  progressFill.style.width=`${(matched/DATA.length)*100}%`;
+  counter.textContent=`${state.module+1} / ${MODULES}`;
+  backBtn.disabled=state.module===0;
+  nextBtn.disabled=state.module===MODULES-1;
+  viBtn.textContent=state.viVisible?'Ẩn tiếng Việt':'Hiện tiếng Việt';
+  buildIndex();
+}
+
+function buildIndex(){
+  indexGrid.innerHTML=Array.from({length:MODULES},(_,mi)=>`<button class="idx ${mi===state.module?'current':''} ${moduleComplete(mi)?'done':''}" data-mi="${mi}" type="button">${mi+1}</button>`).join('');
+  indexGrid.querySelectorAll('.idx').forEach(b=>b.onclick=()=>{state.module=Number(b.dataset.mi);save();closeDrawer();render()});
+}
+
+function go(delta){
+  const n=state.module+delta;
+  if(n<0||n>=MODULES)return;
+  state.module=n;save();render();
+}
+backBtn.onclick=()=>go(-1);
+nextBtn.onclick=()=>go(1);
+
+viBtn.onclick=()=>{
+  state.viVisible=!state.viVisible;
+  document.body.classList.toggle('vi-hidden',!state.viVisible);
+  viBtn.textContent=state.viVisible?'Ẩn tiếng Việt':'Hiện tiếng Việt';
+  save();
+};
+
+function openDrawer(){drawer.classList.add('open');overlay.classList.add('open')}
+function closeDrawer(){drawer.classList.remove('open');overlay.classList.remove('open')}
+indexBtn.onclick=openDrawer;
+overlay.onclick=closeDrawer;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
+
+resetAllBtn.onclick=()=>{
+  if(confirm('Reset all matching progress?')){
+    state={module:0,matched:{},viVisible:state.viVisible,shuffleVersion:{}};
+    save();render();
+  }
+};
+
+render();
+</script>
+</body>
+</html>
